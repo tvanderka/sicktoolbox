@@ -369,8 +369,7 @@ namespace SickToolbox {
   	 */
   	if (FD_ISSET(_sick_fd,&file_desc_set)) {
 	  
-  	  /* Read a single byte from the stream! */
-  	  num_bytes_read = read(_sick_fd,&dest_buffer[total_num_bytes_read],1);
+  	  num_bytes_read = read(_sick_fd,&dest_buffer[total_num_bytes_read],num_bytes_to_read-total_num_bytes_read);
 
   	  /* Decide what to do based on the output of read */
   	  if (num_bytes_read > 0) { //Update the number of bytes read so far
